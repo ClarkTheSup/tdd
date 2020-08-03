@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class MommifierTest {
     private Mommifier mommifier;
@@ -23,4 +23,15 @@ public class MommifierTest {
         assertEquals(num2, mommifier.countVowels(str2));
         assertEquals(num3, mommifier.countVowels(str3));
     }
+
+    @Test
+    public void given_vowels_then_ouput_whether_greater_than_30_percent () {
+        String str1 = "aei bhbhbhb iotyyyyyyyyy";
+        String str2 = "nnnnnnnnnnaeeimmmmmmiouemmm";
+        String str3 = " nnouiouioiuiuinuiouniuiunuion";
+        assertFalse(mommifier.greaterThanThirtyPercentage(str1));
+        assertFalse(mommifier.greaterThanThirtyPercentage(str2));
+        assertTrue(mommifier.greaterThanThirtyPercentage(str3));
+    }
+    
 }

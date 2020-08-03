@@ -11,4 +11,13 @@ public class Mommifier {
         }
         return count;
     }
+
+    public double countPercentage(String str) {
+        double count = countVowels(str);
+        return count/str.length();
+    }
+
+    public boolean greaterThanThirtyPercentage(String str) {
+        return countPercentage(str) > 0.3 ? true : false;
+    }
 }
