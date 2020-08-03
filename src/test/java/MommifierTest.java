@@ -33,5 +33,18 @@ public class MommifierTest {
         assertFalse(mommifier.greaterThanThirtyPercentage(str2));
         assertTrue(mommifier.greaterThanThirtyPercentage(str3));
     }
-    
+
+    @Test
+    public void when_greater_than_30_percent_then_replace_continuous_vowel_sets () {
+        String str1 = "aei bhbhbhb iotyyyyyyyyy";
+        String str2 = "nnnnnnnnnnaeeimmmmmmiouemmm";
+        String str3 = "nouioui";
+        String expected1 = mommifier.insertMommy(str1);
+        String expected2 = mommifier.insertMommy(str2);
+        String expected3 = mommifier.insertMommy(str3);
+        assertTrue(expected1.equals(str1));
+        assertTrue(expected2.equals(str2));
+        assertTrue(expected3.equals("nomommyumommyimommyomommyumommyi"));
+    }
+
 }

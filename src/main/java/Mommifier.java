@@ -4,8 +4,7 @@ public class Mommifier {
         int count = 0;
         for (int i=0; i<str.length(); i++) {
             String letter = String.valueOf(str.charAt(i)).toLowerCase();
-            if (letter.equals("a") || letter.equals("e") || letter.equals("i")
-                    || letter.equals("o") || letter.equals("u")) {
+            if (isVowel(letter)) {
                 count++;
             }
         }
@@ -19,5 +18,34 @@ public class Mommifier {
 
     public boolean greaterThanThirtyPercentage(String str) {
         return countPercentage(str) > 0.3 ? true : false;
+    }
+
+    public boolean isVowel(String letter) {
+        if (letter.equals("a") || letter.equals("e") || letter.equals("i")
+                || letter.equals("o") || letter.equals("u")) {
+            return true;
+        }
+        return false;
+    }
+
+    public String insertMommy(String str) {
+        if (greaterThanThirtyPercentage(str)) {
+            String result = "";
+            for (int i=0; i<str.length(); i++) {
+                if (i != str.length() - 1) {
+                    String currentLetter = String.valueOf(str.charAt(i));
+                    String nextLetter = String.valueOf(str.charAt(i+1));
+                    result += currentLetter;
+                    if (isVowel(currentLetter) && isVowel(nextLetter)) {
+                        result += "mommy";
+                    }
+                } else {
+                    result += str.charAt(str.length() - 1);
+                }
+            }
+            return result;
+        } else {
+            return str;
+        }
     }
 }
